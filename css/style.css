@@ -7,6 +7,7 @@ body {
 }
 #label {
   background-color: white;
+  width:280px;
   padding: 25px;
   z-index: 2;
   position: absolute;
