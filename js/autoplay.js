@@ -4,23 +4,26 @@ var minOffset = 10000;
 
 
 window.addEventListener("mousewheel", toggleVideos);
+window.addEventListener("hashchange", toggleVideos);
+
 window.addEventListener("resize", toggleVideos);
 
 //window.addEventListener("touchend", toggleVideos);
 window.addEventListener("load", function() {
-    var windowWidth = window.innerWidth;
+    setupAnimation();
 
+    var windowWidth = window.innerWidth;
 
     toggleVideos();
     var videos = document.getElementsByTagName('video');
     for (var v = 0; v < videos.length; v++) {
 
         if (windowWidth < 1000) {
-            addSourceToVideo(videos[v],"video/"+ v + "s.webm", "video/webm");
-            addSourceToVideo(videos[v],"video/"+ v + "s.mp4", "video/mp4");
+            addSourceToVideo(videos[v], "video/" + v + "s.webm", "video/webm");
+            addSourceToVideo(videos[v], "video/" + v + "s.mp4", "video/mp4");
         } else {
-          addSourceToVideo(videos[v],"video/"+ v + ".webm", "video/webm");
-          addSourceToVideo(videos[v],"video/"+ v + ".mp4", "video/mp4");
+            addSourceToVideo(videos[v], "video/" + v + ".webm", "video/webm");
+            addSourceToVideo(videos[v], "video/" + v + ".mp4", "video/mp4");
         }
 
         videos[v].addEventListener("click", function() {
