@@ -1,34 +1,107 @@
-body {
-  background-color: lightgrey;
-  font-family: Helvetica, Arial, sans-serif;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
+html{
+  overflow: hidden;
 }
-#label {
-  background-color: white;
-  width:280px;
-  padding: 25px;
-  z-index: 2;
-  position: absolute;
-  top: 0px;
-  left: 50px;
+
+body {
+    background-color: lightgrey;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 100vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: auto;
+    padding: 0px;
+    margin: 0px;
+    /*scroll-snap-type: mandatory;
+scroll-snap-points-y: repeat(100vh);
+scroll-behaviour: smooth;*/
+}
+h1,h2,h3,h4{
+  margin:0 auto 0 auto;
+  max-width: 1200px;
+}
+.label {
+    background-color: rgba(0,0,0,0.75);
+    width: auto;
+    padding: 3%;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    color: white;
+    text-align: justify;
+    border-bottom: 3px solid white;
 }
 #stage {
-  position: absolute;
-  top: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  background-color: white;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: black;
 }
-p {
-  color: grey;
+#logo {
+  position:fixed;
+  top:3%;
+  left:3%;
+  width:20%;
+  z-index: 3;
 }
-img {
-  width: 100%;
+.info {
+  padding-top: 1%;
+  color:grey;
+  font-style: italic;
+  text-align: left;
 }
 a, a:visited, a:active {
-  color: grey;
+    color: grey;
+    text-decoration: none;
+}
+
+div#bosch a , div#bosch a:visited, div#bosch a:active {
+    color: rgb(255,225,0);
+}
+div#bosch div.label {
+  border-bottom: 3px solid rgb(255,225,0);
+}
+
+div#schunk a , div#schunk a:visited, div#schunk a:active {
+    color: rgb(0,128,255);
+}
+div#schunk div.label {
+  border-bottom: 3px solid rgb(0,128,255);
+}
+
+p{
+  margin:0 auto 0 auto;
+  max-width: 1200px;
+  line-height: 1.4;
+}
+video {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+#videocontainer {
+      position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    video {
+        height: 100%;
+        width: auto;
+    }
 }
