@@ -3,12 +3,11 @@ var newMinID = -1;
 var minOffset = 10000;
 
 
-window.addEventListener("mousewheel", toggleVideos);
-window.addEventListener("hashchange", toggleVideos);
+window.addEventListener("mousewheel", toggleVideos, true);
+window.addEventListener("hashchange", toggleVideos, true);
+window.addEventListener("resize", toggleVideos, true);
+window.addEventListener("touchmove", toggleVideos, true);
 
-window.addEventListener("resize", toggleVideos);
-
-//window.addEventListener("touchend", toggleVideos);
 window.addEventListener("load", function() {
     setupAnimation();
 
@@ -27,7 +26,7 @@ window.addEventListener("load", function() {
         }
 
         videos[v].addEventListener("click", function() {
-            if (this.paused) this.play();
+            if (this.paused) playSingleVideo(this);
             else this.pause();
 
         });
@@ -37,10 +36,8 @@ window.addEventListener("load", function() {
 
 function addSourceToVideo(element, src, type) {
     var source = document.createElement('source');
-
     source.src = src;
     source.type = type;
-
     element.appendChild(source);
 }
 
@@ -60,14 +57,19 @@ function toggleVideos() {
 
     if (minID != newMinID) {
         minID = newMinID;
-        console.log("changed to " + newMinID);
-        for (var v = 0; v < videos.length; v++) {
-            //console.log(v+" "+minID);
-            if (v != minID) {
-                if (!videos[v].paused) videos[v].pause();
-            } else {
-                if (videos[v].paused) videos[v].play();
-            }
-        }
+        playSingleVideo(videos[minID]);
     }
 };
+
+
+
+function playSingleVideo(node){
+  var videos = document.getElementsByTagName('video');
+  for (var v = 0; v < videos.length; v++) {
+      if (videos[v] !== node) {
+          if (!videos[v].paused) videos[v].pause();
+      } else {
+          if (videos[v].paused) videos[v].play();
+      }
+  }
+}

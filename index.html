@@ -9,16 +9,24 @@
 </head>
 
 <body>
-    <img id="logo" src="img/logo.svg" />
+    <!-- <img id="logo" src="img/logo.svg" /> -->
     <img id="burger" src="img/burger.svg" />
-
-
-    <!-- <iframe id="stage" src="http://of-co-de.github.io/Flubber-WebGL/"></iframe> -->
+    <div id="intro">
+        <div class="videocontainer" id="bosch1">
+          <svg version="1.1" id="animatedlogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" xml:space="preserve">
+              <text x="820" y="200" text-anchor="end">
+                  <tspan id="wildcard"></tspan>
+                  of code</text>
+              <text x="820" y="200" text-anchor="end">_____ of code</text>
+            </svg>
+        </div>
+    </div>
     <div id="bosch">
         <div class="videocontainer" id="bosch1">
-            <video loop muted preload poster="video/0.jpg">
-
-            </video>
+            <video loop muted preload poster="video/0.jpg"></video>
+            <div class="title">Technology
+                <br>Design
+                <br>Art</div>
             <div class="label">
                 <h2>ideas of code</h2>
                 <p>Installation in Renningen, Germany
@@ -27,7 +35,7 @@
             </div>
         </div>
         <div class="videocontainer" id="bosch2">
-          <video loop muted preload poster="video/1.jpg">
+            <video loop muted preload poster="video/1.jpg">
             </video>
             <div class="label">
                 <p>A fascinating organic-like structure that demonstrates real-time dynamics in an extraordinary way: The elements show facts and figures such as the number of present employees, or held telephone calls.</p>
@@ -35,7 +43,7 @@
             </div>
         </div>
         <div class="videocontainer" id="bosch3">
-          <video loop muted preload poster="video/2.jpg">
+            <video loop muted preload poster="video/2.jpg">
             </video>
             <div class="label">
                 <p>Monitored on nine screens (9 feet high and 12 feet long) in the entrance hall of the Bosch site in Renningen this Welcome Screen pictures the potential of the effort that is made here every day.</p>
@@ -45,8 +53,7 @@
     </div>
     <div id="schunk">
         <div class="videocontainer" id="schunk1">
-          <video loop muted preload poster="video/3.jpg">
-            </video>
+            <video loop muted preload poster="video/3.jpg"></video>
             <div class="label">
                 <h2>worlds of code</h2>
                 <p>Generative Keyvisual
@@ -55,16 +62,14 @@
             </div>
         </div>
         <div class="videocontainer" id="schunk2">
-          <img class="fullscreen" src="video/schunk.jpg">
-            </video>
+            <img class="fullscreen" src="video/schunk.jpg">
             <div class="label">
                 <p>The key visual on the cover of Schunks employee magazine “Schunk Report”.</p>
                 <p class="info"><a data-scroll href="#schunk3">▼ More info</a></p>
             </div>
         </div>
         <div class="videocontainer" id="schunk3">
-          <img class="fullscreen" src="video/schunk2.jpg">
-            </video>
+            <img class="fullscreen" src="video/schunk2.jpg">
             <div class="label">
                 <p>Triangular shapes were used on the invitation card.</p>
                 <p class="info"><a data-scroll href="#">▼ More info</a></p>
@@ -74,6 +79,7 @@
     <!-- <script src="js/scrollsnap.js"></script> -->
     <script src="js/scroll.js"></script>
     <script src="js/autoplay.js"></script>
+    <script src="js/logo.js"></script>
 
 </body>
 

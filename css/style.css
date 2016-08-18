@@ -1,5 +1,9 @@
+@import 'https://fonts.googleapis.com/css?family=Permanent+Marker';
+html {
+    /*overflow: hidden;*/
+}
 body {
-    background-color: lightgrey;
+    background-color: black;
     font-family: Helvetica, Arial, sans-serif;
     height: 100vh;
     overflow: auto;
@@ -10,15 +14,16 @@ body {
 scroll-snap-points-y: repeat(100vh);
 scroll-behaviour: smooth;*/
 }
-h1,h2,h3,h4{
-  margin:0 auto 0 0;
-  max-width: 900px;
-  line-height: 1.4;
+h1, h2, h3, h4 {
+    margin: 0 auto 0 0;
+    line-height: 1.4;
 }
 .label {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0, 0, 0, 0.65);
     width: auto;
     padding: 2% 3%;
+    margin: 3% 3%;
+    max-width: 800px;
     z-index: 2;
     position: absolute;
     bottom: 0px;
@@ -26,60 +31,53 @@ h1,h2,h3,h4{
     right: 0px;
     color: white;
     text-align: left;
-    border-bottom: 3px solid white;
-}
-#stage {
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    background-color: black;
+    border-top: 3px solid white;
 }
 #logo {
-  position:fixed;
-  top:3%;
-  left:3%;
-  width:15em;
-  z-index: 3;
+    position: fixed;
+    top: 3%;
+    left: 3%;
+    width: 15em;
+    z-index: 3;
 }
 #burger {
-  position:fixed;
-  top:3%;
-  right:3%;
-  width:15em;
-  z-index: 3;
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    width: 15em;
+    z-index: 3;
 }
 .info {
-  padding-top: 1%;
-  color:grey;
-  font-style: italic;
-  text-align: left;
+    padding-top: 1%;
+    color: grey;
+    /*font-size: 2em;*/
+    /*font-style: italic;*/
+    text-align: left;
+}
+.title {
+    text-align: center;
+    font-size: 3em;
 }
 a, a:visited, a:active {
     color: grey;
     text-decoration: none;
 }
-
-div#bosch a , div#bosch a:visited, div#bosch a:active, div#bosch h2{
-    color: rgb(255,225,0);
+div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch h2 {
+    color: rgb(255, 225, 0);
 }
 div#bosch div.label {
-  border-bottom: 3px solid rgb(255,225,0);
+    border-top: 3px solid rgb(255, 225, 0);
 }
-
-div#schunk a , div#schunk a:visited, div#schunk a:active, div#schunk h2 {
+div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk h2 {
     color: #B1C21B;
 }
 div#schunk div.label {
-  border-bottom: 3px solid #B1C21B;
+    border-top: 3px solid #B1C21B;
 }
-
-p{
-  margin:0 auto 0 0;
-  max-width: 900px;
-  line-height: 1.4;
+p {
+    margin: 0 auto 0 0;
+    max-width: 900px;
+    line-height: 1.4;
 }
 video, .fullscreen {
     position: absolute;
@@ -90,22 +88,40 @@ video, .fullscreen {
     margin: auto;
 }
 .videocontainer {
-      position: relative;
+    position: relative;
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    border-bottom: 3px solid white;
 }
-
 @media (min-aspect-ratio: 16/9) {
     video, .fullscreen {
         width: 100%;
         height: auto;
     }
 }
-
 @media (max-aspect-ratio: 16/9) {
     video, .fullscreen {
         height: 100%;
         width: auto;
     }
+}
+#animatedlogo {
+    display: block;
+    margin: 45% auto;
+    max-width: 800px;
+}
+text {
+    font-family: Vitesse;
+    font-weight: bold;
+    font-size: 80px;
+    fill: white;
+    font-weight: bold;
+}
+#wildcard {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 100;
+    fill: grey;
+    <!-- text-decoration: underline;
+    -->
 }

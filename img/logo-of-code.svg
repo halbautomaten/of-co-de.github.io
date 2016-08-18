@@ -1,0 +1,114 @@
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" xml:space="preserve">
+    <defs>
+        <style type="text/css">
+          <![CDATA[
+          @import 'https://fonts.googleapis.com/css?family=Permanent+Marker';
+
+          text {
+              font-family: Vitesse;
+              font-weight: bold;
+              font-size: 100px;
+              fill: #000;
+              font-weight: bold;
+
+          }
+
+          #wildcard {
+              font-family: 'Permanent Marker', cursive;
+              font-weight: 100;
+              fill: #ddd;
+              <!-- text-decoration: underline; -->
+          }
+
+          ]]>
+        </style>
+    </defs>
+    <text x="800" y="500" text-anchor="end">
+        <tspan id="wildcard"></tspan>
+        of code</text>
+    <text x="800" y="500" text-anchor="end">_____ of code</text>
+
+    <script type="text/javascript">
+        <![CDATA[
+        var wildcard = document.getElementById("wildcard");
+        var array = [
+            ":-)",
+            "100%",
+            "abc",
+            "animation",
+            "apps",
+            "art",
+            "beauty",
+            "cats",
+            "charts",
+            "christmas",
+            "code",
+            "color",
+            "concept",
+            "content",
+            "craft",
+            "data",
+            "design",
+            "diagrams",
+            "education",
+            "flow",
+            "form",
+            "function",
+            "future",
+            "globe",
+            "graph",
+            "graphics",
+            "humans",
+            "images",
+            "info",
+            "interaction",
+            "layout",
+            "lines",
+            "loads",
+            "lots",
+            "made",
+            "maps",
+            "michael",
+            "moments",
+            "motion",
+            "patterns",
+            "reality",
+            "religion",
+            "report",
+            "sebastian",
+            "shape",
+            "smile",
+            "sounds",
+            "stories",
+            "studio",
+            "tales",
+            "taste",
+            "things",
+            "toasters",
+            "type",
+            "united states",
+            "videos",
+            "view",
+            "visualization",
+            "web",
+            "world"
+        ];
+        function refresh() {
+            var randomIndex = Math.floor(Math.random() * array.length);
+            wildcard.innerHTML = array[randomIndex];
+        }
+
+        refresh();
+        setInterval(function(){
+        refresh();
+        setTimeout(refresh,100);
+        setTimeout(refresh,200);
+        setTimeout(refresh,300);
+        setTimeout(refresh,400);
+        setTimeout(refresh,500);
+
+        }, 1600);
+
+        ]]>
+    </script>
+</svg>

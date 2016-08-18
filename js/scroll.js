@@ -16,7 +16,8 @@ function animate(elem, style, unit, from, to, time, prop) {
 
 function scrollTo(targetQuery) {
     var target = document.querySelector(targetQuery);
-    animate(document.body, "scrollTop", "", window.pageYOffset, target.offsetTop, 200, true);
+    playSingleVideo(target.querySelector("video"));
+    animate(document.body, "scrollTop", "", window.pageYOffset, target.offsetTop, 250, true);
 }
 
 function setupAnimation() {
@@ -26,7 +27,7 @@ function setupAnimation() {
         //console.log(e);
         e.preventDefault();
         var targetQuery = this.getAttribute("href");
-        console.log(targetQuery);
+        //console.log(targetQuery);
         scrollTo(targetQuery);
         return false;
       });
