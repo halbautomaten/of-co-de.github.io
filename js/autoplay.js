@@ -11,19 +11,12 @@ window.addEventListener("touchmove", toggleVideos, true);
 window.addEventListener("load", function() {
     setupAnimation();
 
-    var windowWidth = window.innerWidth;
 
     toggleVideos();
     var videos = document.getElementsByTagName('video');
     for (var v = 0; v < videos.length; v++) {
 
-        if (windowWidth < 1000) {
-            addSourceToVideo(videos[v], "video/" + v + "s.webm", "video/webm");
-            addSourceToVideo(videos[v], "video/" + v + "s.mp4", "video/mp4");
-        } else {
-            addSourceToVideo(videos[v], "video/" + v + ".webm", "video/webm");
-            addSourceToVideo(videos[v], "video/" + v + ".mp4", "video/mp4");
-        }
+        buildSources(videos[v]);
 
         videos[v].addEventListener("click", function() {
             if (this.paused) playSingleVideo(this);
@@ -34,12 +27,7 @@ window.addEventListener("load", function() {
 
 });
 
-function addSourceToVideo(element, src, type) {
-    var source = document.createElement('source');
-    source.src = src;
-    source.type = type;
-    element.appendChild(source);
-}
+
 
 
 function toggleVideos() {
@@ -63,13 +51,39 @@ function toggleVideos() {
 
 
 
-function playSingleVideo(node){
-  var videos = document.getElementsByTagName('video');
-  for (var v = 0; v < videos.length; v++) {
-      if (videos[v] !== node) {
-          if (!videos[v].paused) videos[v].pause();
-      } else {
-          if (videos[v].paused) videos[v].play();
-      }
-  }
+function playSingleVideo(node) {
+    var videos = document.getElementsByTagName('video');
+    for (var v = 0; v < videos.length; v++) {
+        if (videos[v] !== node) {
+            if (!videos[v].paused) videos[v].pause();
+        } else {
+            if (videos[v].paused) videos[v].play();
+        }
+    }
+}
+
+
+
+
+function buildSources(node) {
+    var key = node.getAttribute("data-source");
+    var windowWidth = window.innerWidth;
+
+    node.setAttribute("poster", "video/" + key + ".jpg");
+
+    if (windowWidth < 1000) {
+        addSourceToVideo(node, "video/" + key + "s.webm", "video/webm");
+        addSourceToVideo(node, "video/" + key + "s.mp4", "video/mp4");
+    } else {
+        addSourceToVideo(node, "video/" + key + ".webm", "video/webm");
+        addSourceToVideo(node, "video/" + key + ".mp4", "video/mp4");
+    }
+}
+
+
+function addSourceToVideo(element, src, type) {
+    var source = document.createElement('source');
+    source.src = src;
+    source.type = type;
+    element.appendChild(source);
 }

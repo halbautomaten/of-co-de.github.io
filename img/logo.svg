@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="84.31mm" height="15.35mm" viewBox="0 0 239 43.5">
   <title>logo</title>
-  <g style="fill: white">
+  <g style="fill: white" id="group">
     <path d="M2.36,36.92H25v5H2.36v-5Z"/>
     <path d="M24.36,36.92H47v5H24.36v-5Z"/>
     <path d="M46.36,36.92H69v5H46.36v-5Z"/>
