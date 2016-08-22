@@ -24,7 +24,6 @@ function setupAnimation() {
     var anchors = document.getElementsByTagName('a');
     for (var a = 0; a < anchors.length; a++) {
         var href = anchors[a].getAttribute("href");
-        console.log(href.substr(0,1));
         if (href.substr(0,1) == "#") {
             anchors[a].addEventListener('click', function(e) {
                 //console.log(e);
