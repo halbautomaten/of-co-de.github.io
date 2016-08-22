@@ -69,7 +69,7 @@ function buildSources(node) {
     var key = node.getAttribute("data-source");
     var windowWidth = window.innerWidth;
 
-    node.setAttribute("poster", "video/" + key + ".jpg");
+    node.setAttribute("poster", "img/" + key + ".jpg");
 
     if (windowWidth < 1000) {
         addSourceToVideo(node, "video/" + key + "s.webm", "video/webm");
