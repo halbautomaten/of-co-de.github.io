@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Permanent+Marker';
+@import 'https://fonts.googleapis.com/css?family=Loved+by+the+King';
 html {
     /*overflow: hidden;*/
 }
@@ -37,7 +37,7 @@ svg{
     left: 0px;
     right: 0px;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.2em;
     /*border-top: 3px solid white;*/
 }
 #logo {
@@ -70,18 +70,19 @@ a, a:visited, a:active {
     text-decoration: none;
 }
 
-
-div#intro {
+div#intro, div#intro g {
   color:grey;
+  fill: white;
 }
 div#intro a, div#intro a:visited, div#intro a:active, div#intro h2, div#intro text {
-    color: white;
-    fill: grey;
+  color:white;
+  fill: white;
 }
 
 
-div#bosch {
+div#bosch, div#intro g {
   color:white;
+  fill: white;
 }
 div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch h2, div#bosch text {
     color: rgb(255, 225, 0);
@@ -89,12 +90,14 @@ div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch h2, div#bosch te
 }
 
 
-div#schunk {
-  color:#050E73;
+div#schunk, div#intro g {
+  color:black;
+  fill:black;
 }
+
 div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk h2, div#schunk text {
-    color: #B1C21B;
-    fill: #B1C21B;
+    color: #020270;
+    fill: #020270;
 }
 
 
@@ -136,11 +139,9 @@ video, .fullscreen {
 
 
 text {
-  font-family: 'Permanent Marker', cursive;
-    font-weight: bold;
-    font-size: 35px;
+  font-family: 'Loved by the King', cursive;
+    font-size: 45px;
     fill: grey;
-    font-weight: bold;
 }
 /*#wildcard {
     font-family: 'Permanent Marker', cursive;
