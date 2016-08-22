@@ -1,10 +1,13 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700';
 @import 'https://fonts.googleapis.com/css?family=Loved+by+the+King';
+
 html {
     /*overflow: hidden;*/
 }
 body {
     background-color: black;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+    font-weight: 300;
     height: 100vh;
     overflow: auto;
     -webkit-overflow-scrolling: auto;
@@ -28,17 +31,20 @@ svg{
 .label {
     /*background-color: rgba(0, 0, 0, 0.65);*/
     /*width: auto;*/
-    padding: 2% 3%;
-    margin: 3% auto;
-    max-width: 800px;
+    margin: 3% 3% 3% auto;
+    max-width: 400px;
     z-index: 2;
     position: absolute;
     bottom: 0px;
     left: 0px;
     right: 0px;
-    text-align: center;
+    text-align: right;
     font-size: 1.2em;
     /*border-top: 3px solid white;*/
+}
+.label.top {
+  bottom: auto;
+  top: 0px;
 }
 #logo {
     position: fixed;
@@ -59,7 +65,7 @@ svg{
     color: grey;
     font-size: 1.6em;
     /*font-style: italic;*/
-    /*text-align: left;*/
+    text-align: right;
 }
 .title {
     text-align: center;
@@ -68,6 +74,7 @@ svg{
 a, a:visited, a:active {
     color: grey;
     text-decoration: none;
+    font-weight: 700;
 }
 
 div#intro, div#intro g {
@@ -91,22 +98,29 @@ div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch h2, div#bosch te
 
 
 div#schunk, div#intro g {
-  color:black;
+  color:rgb(80,80,80);
   fill:black;
 }
 
 div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk h2, div#schunk text {
-    color: #020270;
-    fill: #020270;
+    color: #102090;
+    fill: #102090;
 }
 
-
+div#outro, div#outro g {
+  color:grey;
+  fill: white;
+}
+div#outro a, div#outro a:visited, div#outro a:active, div#outro h2, div#outro text {
+  color:white;
+  fill: white;
+}
 
 p {
     margin: 0 auto 0 0;
     line-height: 1.2;
 }
-video, .fullscreen {
+.fill {
     position: absolute;
     /*top: -9999px;
     bottom: -9999px;
@@ -114,7 +128,7 @@ video, .fullscreen {
     right: -9999px;*/
     margin: auto;
 }
-.videocontainer {
+.container {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -124,14 +138,15 @@ video, .fullscreen {
     align-items: center;
     justify-content: center;
 }
+
 @media (min-aspect-ratio: 16/9) {
-    video, .fullscreen {
+    .fill {
         width: 100%;
         height: auto;
     }
 }
 @media (max-aspect-ratio: 16/9) {
-    video, .fullscreen {
+    .fill {
         height: 100%;
         width: auto;
     }
