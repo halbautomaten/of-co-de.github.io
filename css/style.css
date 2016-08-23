@@ -44,6 +44,7 @@ svg{
 .label.top {
   bottom: auto;
   top: 0px;
+  color:grey;
 }
 #logo {
     position: fixed;
@@ -70,7 +71,7 @@ svg{
     text-align: center;
     font-size: 3em;
 }
-a, a:visited, a:active {
+a, a:visited, a:active, a:hover {
     color: grey;
     text-decoration: none;
     font-weight: 700;
@@ -80,42 +81,49 @@ div#intro, div#intro g {
   color:grey;
   fill: white;
 }
-div#intro a, div#intro a:visited, div#intro a:active, div#intro h2, div#intro text {
+div#intro a, div#intro a:visited, div#intro a:active, div#intro text {
   color:white;
   fill: white;
 }
+div#intro a:hover {
+    color: grey;
+}
 
-
-div#bosch, div#intro g {
+div#bosch, div#bosch g {
   color:white;
   fill: white;
 }
-div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch h2, div#bosch text {
+div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch text {
     color: rgb(255, 225, 0);
     fill: rgb(255, 225, 0);
 }
-
+div#bosch a:hover {
+    color: white;
+}
 
 div#schunk, div#schunk g {
   color:rgb(80,80,80);
   fill:black;
 }
-
-div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk h2, div#schunk text {
+div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk text {
     color: #102090;
     fill: #102090;
 }
+div#schunk a:hover {
+    color: white;
+}
 
-div#lapp, div#lapp g {
+div#lapp, div#lapp g{
   color:white;
   fill:white;
 }
-
-div#lapp a, div#lapp a:visited, div#lapp a:active, div#lapp h2, div#lapp text {
+div#lapp a, div#lapp a:visited, div#lapp a:active, div#lapp text {
     color: #FFAE00;
     fill: #FFAE00;
 }
-
+div#lapp a:hover {
+    color: grey;
+}
 
 div#outro, div#outro g {
   color:grey;
@@ -124,6 +132,9 @@ div#outro, div#outro g {
 div#outro a, div#outro a:visited, div#outro a:active, div#outro h2, div#outro text {
   color:white;
   fill: white;
+}
+div#outro a:hover {
+    color: pink;
 }
 
 p {

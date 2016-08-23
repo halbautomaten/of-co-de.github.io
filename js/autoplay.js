@@ -46,6 +46,9 @@ function toggleVideos() {
     if (minID != newMinID) {
         minID = newMinID;
         playSingleVideo(videos[minID]);
+        if (history.pushState) {
+            history.replaceState(null, null, '#'+findAncestor(videos[minID], "container").id);
+        }
     }
 };
 
@@ -86,4 +89,9 @@ function addSourceToVideo(element, src, type) {
     source.src = src;
     source.type = type;
     element.appendChild(source);
+}
+
+function findAncestor (el, cls) {
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
 }

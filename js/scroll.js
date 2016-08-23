@@ -18,13 +18,16 @@ function scrollTo(targetQuery) {
     var target = document.querySelector(targetQuery);
     playSingleVideo(target.querySelector("video"));
     animate(document.body, "scrollTop", "", window.pageYOffset, target.offsetTop, 250, true);
+    if (history.pushState) {
+        history.replaceState(null, null, targetQuery);
+    }
 }
 
 function setupAnimation() {
     var anchors = document.getElementsByTagName('a');
     for (var a = 0; a < anchors.length; a++) {
         var href = anchors[a].getAttribute("href");
-        if (href.substr(0,1) == "#") {
+        if (href.substr(0, 1) == "#") {
             anchors[a].addEventListener('click', function(e) {
                 //console.log(e);
                 e.preventDefault();
