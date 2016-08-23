@@ -25,8 +25,7 @@ svg{
   z-index: 4;
   display: block;
   margin: 0 auto;
-  width:50em;
-  max-width: 800px;
+  min-width: 25em;
 }
 .label {
     /*background-color: rgba(0, 0, 0, 0.65);*/
@@ -97,7 +96,7 @@ div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch h2, div#bosch te
 }
 
 
-div#schunk, div#intro g {
+div#schunk, div#schunk g {
   color:rgb(80,80,80);
   fill:black;
 }
@@ -106,6 +105,17 @@ div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk h2, div#schu
     color: #102090;
     fill: #102090;
 }
+
+div#lapp, div#lapp g {
+  color:white;
+  fill:white;
+}
+
+div#lapp a, div#lapp a:visited, div#lapp a:active, div#lapp h2, div#lapp text {
+    color: #FFAE00;
+    fill: #FFAE00;
+}
+
 
 div#outro, div#outro g {
   color:grey;
@@ -122,11 +132,14 @@ p {
 }
 .fill {
     position: absolute;
-    /*top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;*/
     margin: auto;
+}
+
+.fill.left{
+  align-self: flex-start;
+}
+.fill.right{
+  align-self: flex-end;
 }
 .container {
     position: relative;
@@ -135,6 +148,7 @@ p {
     height: 100%;
     border-bottom: 3px solid white;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
