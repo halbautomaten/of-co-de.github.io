@@ -45,6 +45,7 @@ svg{
     /*border-top: 3px solid white;*/
 }
 .label.top {
+  position:fixed;
   bottom: auto;
   top: 0px;
   color:grey;
