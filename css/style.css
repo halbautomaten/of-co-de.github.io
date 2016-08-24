@@ -23,9 +23,12 @@ h1, h2, h3, h4 {
 }
 svg{
   z-index: 4;
-  display: block;
-  margin: 0 auto;
-  min-width: 25em;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
 }
 .label {
     /*background-color: rgba(0, 0, 0, 0.65);*/
@@ -142,15 +145,22 @@ p {
     line-height: 1.2;
 }
 .fill {
-    position: absolute;
-    margin: auto;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
 }
 
 .fill.left{
-  align-self: flex-start;
+  /*left:0;*/
+  /*align-self: flex-start;*/
 }
 .fill.right{
-  align-self: flex-end;
+  /*right:0;*/
+
+  /*align-self: flex-end;*/
 }
 .container {
     position: relative;
@@ -158,10 +168,10 @@ p {
     width: 100%;
     height: 100%;
     border-bottom: 3px solid white;
-    display: flex;
+    /*display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center;*/
 }
 
 @media (min-aspect-ratio: 16/9) {
