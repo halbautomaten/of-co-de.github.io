@@ -47,8 +47,15 @@ function toggleVideos() {
     if (minID != newMinID) {
         minID = newMinID;
         playSingleVideo(videos[minID]);
-        if (history.pushState) {
-            history.replaceState(null, null, '#' + findAncestor(videos[minID], "container").id);
+
+        var parentContainer = findContainer(videos[minID]);
+        var parentSection = findSection(videos[minID]);
+
+        if (history.pushState && parentContainer) {
+            history.replaceState(null, null, '#' + parentContainer.id);
+        }
+        if (parentSection) {
+            updateNavigation(parentSection.id);
         }
     }
 };
@@ -93,7 +100,22 @@ function addSourceToVideo(element, src, type) {
     element.appendChild(source);
 }
 
-function findAncestor(el, cls) {
-    while ((el = el.parentElement) && !el.classList.contains(cls));
+
+
+function updateNavigation(id) {
+    var navElements = document.querySelectorAll("li");
+    for (var n=0;n<navElements.length;n++) navElements[n].className = "";
+    var activeElement = document.querySelector("#" + id + "link");
+    activeElement.className = "active";
+}
+
+
+function findContainer(el) {
+    while ((el = el.parentElement) && !el.classList.contains("container"));
+    return el;
+}
+
+function findSection(el) {
+    while ((el = el.parentElement) && el.tagName != "SECTION");
     return el;
 }

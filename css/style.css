@@ -30,6 +30,13 @@ svg{
   right: -9999px;
   margin: auto;
 }
+ul{
+  list-style-type: none;
+}
+
+li.active a {
+  color:white;
+}
 .label {
     /*background-color: rgba(0, 0, 0, 0.65);*/
     /*width: auto;*/
@@ -81,63 +88,63 @@ a, a:visited, a:active, a:hover {
     font-weight: 700;
 }
 
-div#intro, div#intro g {
+#intro, #intro g {
   color:grey;
   fill: white;
 }
-div#intro a, div#intro a:visited, div#intro a:active, div#intro text {
+#intro a, #intro a:visited, #intro a:active, #intro text {
   color:white;
   fill: white;
 }
-div#intro a:hover {
+#intro a:hover {
     color: grey;
 }
 
-div#bosch, div#bosch g {
+#bosch, #bosch g {
   color:white;
   fill: white;
 }
-div#bosch a, div#bosch a:visited, div#bosch a:active, div#bosch text {
+#bosch a, #bosch a:visited, #bosch a:active, #bosch text {
     color: rgb(255, 225, 0);
     fill: rgb(255, 225, 0);
 }
-div#bosch a:hover {
+#bosch a:hover {
     color: white;
 }
 
-div#schunk, div#schunk g {
+#schunk, #schunk g {
   color:rgb(80,80,80);
   fill:black;
 }
-div#schunk a, div#schunk a:visited, div#schunk a:active, div#schunk text {
+#schunk a, #schunk a:visited, #schunk a:active, #schunk text {
     color: #102090;
     fill: #102090;
 }
-div#schunk a:hover {
+#schunk a:hover {
     color: white;
 }
 
-div#lapp, div#lapp g{
+#lapp, #lapp g{
   color:white;
   fill:white;
 }
-div#lapp a, div#lapp a:visited, div#lapp a:active, div#lapp text {
+#lapp a, #lapp a:visited, #lapp a:active, #lapp text {
     color: #FFAE00;
     fill: #FFAE00;
 }
-div#lapp a:hover {
+#lapp a:hover {
     color: grey;
 }
 
-div#outro, div#outro g {
+#outro, #outro g {
   color:grey;
   fill: white;
 }
-div#outro a, div#outro a:visited, div#outro a:active, div#outro h2, div#outro text {
+#outro a, #outro a:visited, #outro a:active, #outro h2, #outro text {
   color:white;
   fill: white;
 }
-div#outro a:hover {
+#outro a:hover {
     color: pink;
 }
 
