@@ -127,8 +127,8 @@ a, a:visited, a:active, a:hover {
   fill:white;
 }
 #lapp a, #lapp a:visited, #lapp a:active, #lapp text {
-    color: #FF9000;
-    fill: #FF9000;
+    color: #FE9020;
+    fill: #FE9020;
 }
 #lapp a:hover {
     color: grey;
