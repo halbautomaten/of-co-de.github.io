@@ -24,6 +24,7 @@ h1, h2, h3, h4 {
 svg{
   z-index: 4;
   position: absolute;
+  min-width: 25em;
   top: -9999px;
   bottom: -9999px;
   left: -9999px;
@@ -37,6 +38,10 @@ ul{
 li.active a {
   color:white;
 }
+li a:hover {
+  color:white;
+}
+
 .label {
     /*background-color: rgba(0, 0, 0, 0.65);*/
     /*width: auto;*/
@@ -61,13 +66,6 @@ li.active a {
     position: fixed;
     top: 3%;
     left: 3%;
-    width: 15em;
-    z-index: 3;
-}
-#burger {
-    position: fixed;
-    top: 3%;
-    right: 3%;
     width: 15em;
     z-index: 3;
 }
@@ -129,8 +127,8 @@ a, a:visited, a:active, a:hover {
   fill:white;
 }
 #lapp a, #lapp a:visited, #lapp a:active, #lapp text {
-    color: #FFAE00;
-    fill: #FFAE00;
+    color: #FF9000;
+    fill: #FF9000;
 }
 #lapp a:hover {
     color: grey;
@@ -201,9 +199,3 @@ text {
     font-size: 45px;
     fill: grey;
 }
-/*#wildcard {
-    font-family: 'Permanent Marker', cursive;
-    fill: grey;
-    <!-- text-decoration: underline;
-    -->
-}*/
