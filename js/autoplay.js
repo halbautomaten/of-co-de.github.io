@@ -43,6 +43,7 @@ function toggleVideos() {
             newMinID = v;
         }
     }
+    updateNavigationOpacity();
 
     if (minID != newMinID) {
         minID = newMinID;
@@ -109,6 +110,19 @@ function updateNavigation(id) {
     activeElement.className = "active";
 }
 
+function updateNavigationOpacity(){
+  var position = window.pageYOffset;
+  var height = window.innerHeight;
+var progression = Math.abs((position%height)-200)/height;
+var opacity = map(progression,0,1,1,0)
+// document.querySelector(".label.top").style.opacity = opacity;
+// console.log(progression);
+
+}
+
+function map(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
 
 function findContainer(el) {
     while ((el = el.parentElement) && !el.classList.contains("container"));
