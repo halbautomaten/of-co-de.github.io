@@ -17,7 +17,7 @@ function animate(elem, style, unit, from, to, time, prop) {
 function scrollTo(targetQuery) {
     var target = document.querySelector(targetQuery);
     playSingleVideo(target.querySelector("video"));
-    animate(document.body, "scrollTop", "", window.pageYOffset, target.offsetTop, 250, true);
+    animate(document.body, "scrollTop", "", window.pageYOffset, target.offsetTop, 400, true);
     // if (history.pushState) {
     //     history.replaceState(null, null, targetQuery);
     // }
