@@ -1,9 +1,10 @@
 var minID = -1;
 var newMinID = -1;
 var minOffset = 10000;
+var activeContainer =
 
 
-window.addEventListener("mousewheel", toggleVideos, true);
+    window.addEventListener("mousewheel", toggleVideos, true);
 window.addEventListener("DOMMouseScroll", toggleVideos, true);
 window.addEventListener("hashchange", toggleVideos, true);
 window.addEventListener("resize", toggleVideos, true);
@@ -43,7 +44,7 @@ function toggleVideos() {
             newMinID = v;
         }
     }
-    updateNavigationOpacity();
+    updateNavigationPosition();
 
     if (minID != newMinID) {
         minID = newMinID;
@@ -53,6 +54,7 @@ function toggleVideos() {
         var parentSection = findSection(videos[minID]);
 
         if (history.pushState && parentContainer) {
+            moveDocumentObject("#navigation", '#' + parentContainer.id)
             history.replaceState(null, null, '#' + parentContainer.id);
         }
         if (parentSection) {
@@ -105,18 +107,26 @@ function addSourceToVideo(element, src, type) {
 
 function updateNavigation(id) {
     var navElements = document.querySelectorAll("li");
-    for (var n=0;n<navElements.length;n++) navElements[n].className = "";
+    for (var n = 0; n < navElements.length; n++) navElements[n].className = "";
     var activeElement = document.querySelector("#" + id + "link");
     activeElement.className = "active";
 }
 
-function updateNavigationOpacity(){
-  var position = window.pageYOffset;
-  var height = window.innerHeight;
-var progression = Math.abs((position%height)-200)/height;
-var opacity = map(progression,0,1,1,0)
-// document.querySelector(".label.top").style.opacity = opacity;
-// console.log(progression);
+function updateNavigationPosition() {
+
+    var position = window.pageYOffset;
+    var height = window.innerHeight;
+    var progression = position % height;
+    if (progression < 0.5 * height) {
+        document.querySelector(".label.top").style.position = "fixed";
+        document.querySelector(".label.top").style.top = "0px";
+
+    } else {
+       document.querySelector(".label.top").style.position = "relative";
+      //  document.querySelector(".label.top").style.top = height - progression + "px";
+
+    }
+    // console.log(progression);
 
 }
 
@@ -132,4 +142,11 @@ function findContainer(el) {
 function findSection(el) {
     while ((el = el.parentElement) && el.tagName != "SECTION");
     return el;
+}
+
+
+function moveDocumentObject(cut, paste) {
+    var pasteNode = document.querySelector(paste);
+    var cutNode = document.querySelector(cut);
+    pasteNode.appendChild(cutNode);
 }
