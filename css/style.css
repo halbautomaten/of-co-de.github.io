@@ -25,7 +25,7 @@ h1, h2, h3, h4 {
 svg{
   z-index: 4;
   position: absolute;
-  min-width: 25rem;
+  min-width: 28rem;
   top: -9999px;
   bottom: -9999px;
   left: -9999px;
