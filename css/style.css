@@ -2,7 +2,7 @@
 @import 'https://fonts.googleapis.com/css?family=Loved+by+the+King';
 
 html {
-    /*overflow: hidden;*/
+    overflow: hidden;
     font-size: 16px;
 }
 body {
@@ -10,13 +10,19 @@ body {
     font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
     font-weight: 300;
     height: 100vh;
-    overflow: auto;
-    -webkit-overflow-scrolling: auto;
+    overflow: hidden;
     padding: 0px;
     margin: 0px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     /*scroll-snap-type: mandatory;
 scroll-snap-points-y: repeat(100vh);
 scroll-behaviour: smooth;*/
+}
+:focus {
+outline: 0;
+border:none;
+color: rgba(0, 0, 0, 0);
 }
 h1, h2, h3, h4 {
     margin: 0 auto 0 0;
@@ -49,26 +55,40 @@ p {
     line-height: 1.2;
 }
 
+#body{
+  width:100vw;
+  height: 100vh;
+position:fixed;
+overflow: auto;
+}
+
 .label {
-    /*background-color: rgba(0, 0, 0, 0.65);*/
-    /*width: auto;*/
-    margin: 3% 3% 3% auto;
+    margin: 1rem;
     max-width: 400px;
-    z-index: 2;
+    z-index: 4;
     position: absolute;
     bottom: 0px;
-    left: 0px;
+    /*left: 0px;*/
     right: 0px;
     text-align: right;
     font-size: 1.2rem;
 
     /*border-top: 3px solid white;*/
 }
-.label.top {
-  position:fixed;
+.toplabel {
+  z-index: 3;
+  position: relative;
   bottom: auto;
+  right: 0px;
+  text-align: right;
+  font-size: 1.2rem;
+
   top: 0px;
   color:grey;
+}
+#navigation{
+  margin: 1rem;
+  right:0px;
 }
 #logo {
     position: fixed;
@@ -164,6 +184,7 @@ text {
 
 .fill {
   position: absolute;
+  z-index: 0;
   top: -9999px;
   bottom: -9999px;
   left: -9999px;

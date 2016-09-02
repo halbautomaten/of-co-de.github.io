@@ -1,77 +1,159 @@
-var minID = -1;
-var newMinID = -1;
-var minOffset = 10000;
-var activeContainer =
+// var minID = -1;
+// var newMinID = -1;
+// var minOffset = 10000;
+
+var position = 0;
+var container, section, video;
+
+var containers = [];
+var videos = [];
+
+var updateRequested = false;
+var activeContainer = -1;
+var containerHeight = 0;
 
 
-    window.addEventListener("mousewheel", toggleVideos, true);
-window.addEventListener("DOMMouseScroll", toggleVideos, true);
-window.addEventListener("hashchange", toggleVideos, true);
-window.addEventListener("resize", toggleVideos, true);
-window.addEventListener("touchmove", toggleVideos, true);
+
+
+// window.addEventListener("mousewheel", requestUpdate);
+// window.addEventListener("DOMMouseScroll", requestUpdate);
+// window.addEventListener("onscroll", requestUpdate);
+// window.addEventListener("scroll", requestUpdate);
+//
+// //window.addEventListener("hashchange", activateContainer);
+window.addEventListener("touchmove", function(e){
+  // console.log(e);
+  playSingleVideo(video);
+});
+// window.addEventListener("resize", requestUpdate);
 
 window.addEventListener("load", function() {
-    setupAnimation();
+    setupContainers();
+    setupVideos();
+    setupScrollAnimation();
+    loop();
+});
 
+function setupContainers() {
+    var containerCSS = document.querySelector("#containerCSS");
+    containers = document.querySelectorAll(".container");
+    containerHeight = window.innerHeight;
+    containerCSS.innerHTML = ".container {height: " + containerHeight + "px;}";
+}
 
-    toggleVideos();
-    var videos = document.getElementsByTagName('video');
+function setupVideos() {
+    videos = document.querySelectorAll('video');
     for (var v = 0; v < videos.length; v++) {
-
         buildSources(videos[v]);
-
         videos[v].addEventListener("click", function() {
             if (this.paused) playSingleVideo(this);
             else this.pause();
-
         });
     }
 
-});
+}
+
+function loop(){
+  activateContainer();
+  requestAnimationFrame(loop);
+}
 
 
+// function requestUpdate(event) {
+//   event = event || {};
+//   if(event){
+//     activateContainer();
+//   } else if (!updateRequested) {
+//         updateRequested = true;
+//         requestAnimationFrame(function() {
+//             activateContainer();
+//             updateRequested = false;
+//         });
+//     }
+// }
 
+function activateContainer() {
+    //var position = window.pageYOffset;
+    position = document.getElementById("body").scrollTop;
+    var newActiveContainer = Math.round(position / containerHeight);
+    var progression = position % containerHeight;
 
-function toggleVideos() {
-    var videos = document.getElementsByTagName('video');
-    newMinID = minID;
-    minOffset = 10000;
+    if (newActiveContainer != activeContainer) {
+        activeContainer = newActiveContainer;
 
-    for (var v = 0; v < videos.length; v++) {
-        var offset = Math.abs(videos[v].getBoundingClientRect().top);
-        if (offset < minOffset) {
-            minOffset = offset;
-            newMinID = v;
-        }
+        container = containers[activeContainer];
+        video = container.querySelector("video");
+        section = container.parentElement;
+
+        playSingleVideo(video);
+        moveDocumentObject("#navigation", '#' + container.id + '> .toplabel');
+        updateNavigation(section.id);
+
+        if (history.replaceState) history.replaceState(null, null, '#' + container.id);
     }
-    updateNavigationPosition();
 
-    if (minID != newMinID) {
-        minID = newMinID;
-        playSingleVideo(videos[minID]);
-
-        var parentContainer = findContainer(videos[minID]);
-        var parentSection = findSection(videos[minID]);
-
-        if (history.pushState && parentContainer) {
-            moveDocumentObject("#navigation", '#' + parentContainer.id)
-            history.replaceState(null, null, '#' + parentContainer.id);
-        }
-        if (parentSection) {
-            updateNavigation(parentSection.id);
-        }
+    //update Navigation position
+    if (progression < 0.5 * containerHeight) {
+        document.querySelector("#navigation").style.position = "fixed";
+        document.querySelector("#navigation").style.top = "0px";
+    } else {
+        document.querySelector("#navigation").style.position = "relative";
     }
-};
+}
+
+
+
+
+// function toggleVideos() {
+//     var videos = document.getElementsByTagName('video');
+//     newMinID = minID;
+//     minOffset = 10000;
+//
+//     for (var v = 0; v < videos.length; v++) {
+//         var offset = Math.abs(videos[v].getBoundingClientRect().top);
+//         if (offset < minOffset) {
+//             minOffset = offset;
+//             newMinID = v;
+//         }
+//     }
+//
+//     if (minID != newMinID) {
+//         minID = newMinID;
+//         playSingleVideo(videos[minID]);
+//         updateNavigationPosition();
+//
+//         var parentContainer = findContainer(videos[minID]);
+//         var parentSection = findSection(videos[minID]);
+//
+//         if (history.pushState && parentContainer) {
+//             moveDocumentObject("#navigation", '#' + parentContainer.id)
+//             history.replaceState(null, null, '#' + parentContainer.id);
+//         }
+//         if (parentSection) {
+//             updateNavigation(parentSection.id);
+//         }
+//     }
+// };
 
 
 
 function playSingleVideo(node) {
-    var videos = document.getElementsByTagName('video');
     for (var v = 0; v < videos.length; v++) {
         if (videos[v] !== node) {
             if (!videos[v].paused) videos[v].pause();
         } else {
-            if (videos[v].paused) videos[v].play();
+            if (videos[v].paused) {
+                var playPromise = videos[v].play();
+                if (playPromise) {
+                    playPromise.then(function() {
+                        // Automatic playback started!
+                    }).catch(function(error) {
+                      console.log(error);
+                        // Automatic playback failed.
+                        // Show a UI element to let the user manually start playback.
+                    });
+                }
+            }
         }
     }
 }
@@ -112,37 +194,27 @@ function updateNavigation(id) {
     activeElement.className = "active";
 }
 
-function updateNavigationPosition() {
+// function updateNavigationPosition() {
+//     var position = window.pageYOffset;
+//
+//
+//     // console.log(progression);
+//
+// }
 
-    var position = window.pageYOffset;
-    var height = window.innerHeight;
-    var progression = position % height;
-    if (progression < 0.5 * height) {
-        document.querySelector(".label.top").style.position = "fixed";
-        document.querySelector(".label.top").style.top = "0px";
+// function map(value, low1, high1, low2, high2) {
+//     return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+// }
 
-    } else {
-       document.querySelector(".label.top").style.position = "relative";
-      //  document.querySelector(".label.top").style.top = height - progression + "px";
-
-    }
-    // console.log(progression);
-
-}
-
-function map(value, low1, high1, low2, high2) {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-}
-
-function findContainer(el) {
-    while ((el = el.parentElement) && !el.classList.contains("container"));
-    return el;
-}
-
-function findSection(el) {
-    while ((el = el.parentElement) && el.tagName != "SECTION");
-    return el;
-}
+// function findContainer(el) {
+//     while ((el = el.parentElement) && !el.classList.contains("container"));
+//     return el;
+// }
+//
+// function findSection(el) {
+//     while ((el = el.parentElement) && el.tagName != "SECTION");
+//     return el;
+// }
 
 
 function moveDocumentObject(cut, paste) {
