@@ -9,7 +9,7 @@ function animate(elem, style, unit, from, to, time, prop) {
                 elem.style[style] = (from + step * (to - from)) + unit;
             }
             if (step == 1) clearInterval(timer);
-            requestUpdate();
+            //requestUpdate();
         }, 25);
     elem.style[style] = from + unit;
 }

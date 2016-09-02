@@ -148,7 +148,7 @@ function playSingleVideo(node) {
                     playPromise.then(function() {
                         // Automatic playback started!
                     }).catch(function(error) {
-                      console.log(error);
+                      //console.log(error);
                         // Automatic playback failed.
                         // Show a UI element to let the user manually start playback.
                     });
