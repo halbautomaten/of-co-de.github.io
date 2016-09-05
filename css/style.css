@@ -60,7 +60,7 @@ overflow: auto;
 }
 
 .label {
-    margin: 1rem;
+    margin: 1.5rem;
     max-width: 400px;
     z-index: 4;
     position: absolute;
@@ -79,7 +79,7 @@ overflow: auto;
   top: 0px;
 }
 #navigation{
-  margin: 1rem;
+  margin: 1.5rem;
   right:0px;
 }
 #logo {
