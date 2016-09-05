@@ -51,6 +51,9 @@ p {
     margin: 0 auto 0 0;
     line-height: 1.2;
 }
+i{
+  color:grey;
+}
 
 #body{
   width:100vw;
@@ -212,7 +215,7 @@ text {
 }
 
 #schunk, #schunk g {
-  color:rgb(80,80,80);
+  color:black;
   fill:black;
 }
 #schunk a, #schunk a:visited, #schunk a:active, #schunk text {
@@ -224,6 +227,9 @@ text {
 }
 #teams a:hover {
     color: white;
+}
+#teams i {
+    color: grey;
 }
 
 #lapp, #lapp g{
