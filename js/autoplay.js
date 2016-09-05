@@ -25,7 +25,9 @@ window.addEventListener("touchmove", function(e){
   // console.log(e);
   playSingleVideo(video);
 });
-// window.addEventListener("resize", requestUpdate);
+window.addEventListener("resize", function(){
+  setupContainers();
+});
 
 window.addEventListener("load", function() {
     setupContainers();

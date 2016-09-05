@@ -142,6 +142,8 @@ text {
     height: 100%;
     border-bottom: 3px solid white;
     box-sizing: border-box;
+    /*scroll-snap-type: mandatory;*/
+    /*scroll-snap-align:none start;*/
     /*display: flex;
     flex-direction: column;
     align-items: center;
@@ -205,6 +207,9 @@ text {
 #ideas3 li {
   color:black;
 }
+#ideas3 a:hover {
+    color: grey;
+}
 
 #schunk, #schunk g {
   color:rgb(80,80,80);
@@ -215,6 +220,9 @@ text {
     fill: #102090;
 }
 #schunk a:hover {
+    color: grey;
+}
+#teams a:hover {
     color: white;
 }
 
