@@ -14,10 +14,7 @@ body {
     padding: 0px;
     margin: 0px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    /*scroll-snap-type: mandatory;
-scroll-snap-points-y: repeat(100vh);
-scroll-behaviour: smooth;*/
+color:white;
 }
 :focus {
 outline: 0;
@@ -68,12 +65,9 @@ overflow: auto;
     z-index: 4;
     position: absolute;
     bottom: 0px;
-    /*left: 0px;*/
     right: 0px;
     text-align: right;
     font-size: 1.2rem;
-
-    /*border-top: 3px solid white;*/
 }
 .toplabel {
   z-index: 3;
@@ -82,9 +76,7 @@ overflow: auto;
   right: 0px;
   text-align: right;
   font-size: 1.2rem;
-
   top: 0px;
-  color:grey;
 }
 #navigation{
   margin: 1rem;
@@ -121,65 +113,7 @@ text {
     fill: grey;
 }
 
-#intro, #intro g {
-  color:white;
-  fill: white;
-}
-#intro a, #intro a:visited, #intro a:active, #intro text {
-  color:white;
-  fill: white;
-}
-#intro a:hover {
-    color: grey;
-}
 
-#bosch, #bosch g {
-  color:white;
-  fill: white;
-}
-#bosch a, #bosch a:visited, #bosch a:active, #bosch text {
-    color: rgb(255, 225, 0);
-    fill: rgb(255, 225, 0);
-}
-#bosch a:hover {
-    color: white;
-}
-
-#schunk, #schunk g {
-  color:rgb(80,80,80);
-  fill:black;
-}
-#schunk a, #schunk a:visited, #schunk a:active, #schunk text {
-    color: #102090;
-    fill: #102090;
-}
-#schunk a:hover {
-    color: white;
-}
-
-#lapp, #lapp g{
-  color:white;
-  fill:white;
-}
-#lapp a, #lapp a:visited, #lapp a:active, #lapp text {
-    color: #FE9020;
-    fill: #FE9020;
-}
-#lapp a:hover {
-    color: grey;
-}
-
-#outro, #outro g {
-  color:grey;
-  fill: white;
-}
-#outro a, #outro a:visited, #outro a:active, #outro h2, #outro text {
-  color:white;
-  fill: white;
-}
-#outro a:hover {
-    color: pink;
-}
 
 
 .fill {
@@ -236,4 +170,74 @@ text {
     html {
         font-size: 13px;
     }
+}
+
+
+
+
+/*SECTIONS*/
+
+#intro, #intro g {
+  color:white;
+  fill: white;
+}
+#intro a, #intro a:visited, #intro a:active, #intro text {
+  color:#3CE6C6;
+  fill: #3CE6C6;
+}
+#intro a:hover {
+    color: white;
+}
+#made li{
+  color:grey;
+}
+#bosch, #bosch g {
+  color:white;
+  fill: white;
+}
+#bosch a, #bosch a:visited, #bosch a:active, #bosch text {
+    color: rgb(255, 215, 0);
+    fill: rgb(255, 215, 0);
+}
+#bosch a:hover {
+    color: white;
+}
+#ideas3 li {
+  color:black;
+}
+
+#schunk, #schunk g {
+  color:rgb(80,80,80);
+  fill:black;
+}
+#schunk a, #schunk a:visited, #schunk a:active, #schunk text {
+    color: #102090;
+    fill: #102090;
+}
+#schunk a:hover {
+    color: white;
+}
+
+#lapp, #lapp g{
+  color:white;
+  fill:white;
+}
+#lapp a, #lapp a:visited, #lapp a:active, #lapp text {
+    color: #FE9020;
+    fill: #FE9020;
+}
+#lapp a:hover {
+    color: grey;
+}
+
+#outro, #outro g {
+  color:grey;
+  fill: white;
+}
+#outro a, #outro a:visited, #outro a:active, #outro h2, #outro text {
+  color:white;
+  fill: white;
+}
+#outro a:hover {
+    color: pink;
 }
