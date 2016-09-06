@@ -3,30 +3,30 @@
 // var minOffset = 10000;
 
 var position = 0;
+var progression = 0;
 var container, section, video;
 
 var containers = [];
 var videos = [];
 
-var updateRequested = false;
+// var updateRequested = false;
 var activeContainer = -1;
 var containerHeight = 0;
 
 
-
-
-// window.addEventListener("mousewheel", requestUpdate);
-// window.addEventListener("DOMMouseScroll", requestUpdate);
-// window.addEventListener("onscroll", requestUpdate);
-// window.addEventListener("scroll", requestUpdate);
+var lastDelta = 0;
+var mouseWheelAcceleration = 0;
+//window.addEventListener("mousewheel", scrollSnapMouseWheel);
+//window.addEventListener("DOMMouseScroll", scrollSnapMouseWheel);
+//window.addEventListener("scroll", scrollSnapMouseWheel);
 //
 // //window.addEventListener("hashchange", activateContainer);
-window.addEventListener("touchmove", function(e){
-  // console.log(e);
-  playSingleVideo(video);
+window.addEventListener("touchmove", function(e) {
+  console.log(e);
+    playSingleVideo(video);
 });
-window.addEventListener("resize", function(){
-  setupContainers();
+window.addEventListener("resize", function() {
+    setupContainers();
 });
 
 window.addEventListener("load", function() {
@@ -55,9 +55,9 @@ function setupVideos() {
 
 }
 
-function loop(){
-  activateContainer();
-  requestAnimationFrame(loop);
+function loop() {
+    activateContainer();
+    requestAnimationFrame(loop);
 }
 
 
@@ -78,7 +78,7 @@ function activateContainer() {
     //var position = window.pageYOffset;
     position = document.getElementById("body").scrollTop;
     var newActiveContainer = Math.round(position / containerHeight);
-    var progression = position % containerHeight;
+    progression = position % containerHeight;
 
     if (newActiveContainer != activeContainer) {
         activeContainer = newActiveContainer;
@@ -150,7 +150,7 @@ function playSingleVideo(node) {
                     playPromise.then(function() {
                         // Automatic playback started!
                     }).catch(function(error) {
-                      //console.log(error);
+                        //console.log(error);
                         // Automatic playback failed.
                         // Show a UI element to let the user manually start playback.
                     });
