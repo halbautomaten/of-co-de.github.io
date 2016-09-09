@@ -22,7 +22,7 @@ var mouseWheelAcceleration = 0;
 //
 // //window.addEventListener("hashchange", activateContainer);
 window.addEventListener("touchmove", function(e) {
-  console.log(e);
+    console.log(e);
     playSingleVideo(video);
 });
 window.addEventListener("resize", function() {
@@ -87,6 +87,19 @@ function activateContainer() {
         video = container.querySelector("video");
         section = container.parentElement;
 
+
+        for (var c = 0; c < containers.length; c++) {
+            if (c !== activeContainer) {
+                containers[c].className = "container";
+            } else {
+                containers[c].className = "active container";
+            }
+        }
+
+
+
+
+
         playSingleVideo(video);
         moveDocumentObject("#navigation", '#' + container.id + '> .toplabel');
         updateNavigation(section.id);
@@ -143,11 +156,11 @@ function playSingleVideo(node) {
     for (var v = 0; v < videos.length; v++) {
         if (videos[v] !== node) {
             if (!videos[v].paused) videos[v].pause();
-            videos[v].className = "fill";
+            // videos[v].className = "fill";
         } else {
             if (videos[v].paused) {
                 var playPromise = videos[v].play();
-                videos[v].className = "fill playing";
+                // videos[v].className = "fill playing";
                 if (playPromise) {
                     playPromise.then(function() {
                         // Automatic playback started!
