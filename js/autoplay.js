@@ -143,9 +143,11 @@ function playSingleVideo(node) {
     for (var v = 0; v < videos.length; v++) {
         if (videos[v] !== node) {
             if (!videos[v].paused) videos[v].pause();
+            videos[v].className = "fill";
         } else {
             if (videos[v].paused) {
                 var playPromise = videos[v].play();
+                videos[v].className = "fill playing";
                 if (playPromise) {
                     playPromise.then(function() {
                         // Automatic playback started!
