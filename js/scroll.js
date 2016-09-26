@@ -89,7 +89,6 @@ function scrollSnapMouseWheel(e) {
 document.addEventListener("keydown", function(e) {
     e = e || window.event;
     var targetID;
-console.log(e.keyCode);
     if (e.keyCode == '38' && activeContainer > 0) {
         // up arrow
         targetID = containers[activeContainer - 1].id;

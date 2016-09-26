@@ -47,6 +47,7 @@ function setupVideos() {
     videos = document.querySelectorAll('video');
     for (var v = 0; v < videos.length; v++) {
         buildSources(videos[v]);
+        makeVideoPlayableInline(videos[v], false);
         videos[v].addEventListener("click", function() {
             if (this.paused) playSingleVideo(this);
             else this.pause();
