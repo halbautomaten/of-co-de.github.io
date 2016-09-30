@@ -104,9 +104,6 @@ a, a:visited, a:active, a:hover {
 }
 video {
     opacity: 0.4;
-    font-size: 21px;
-    margin-top: 25px;
-    text-align: center;
     -webkit-transition: opacity 0.5s ease-in;
     -moz-transition: opacity 0.5s ease-in;
     -ms-transition: opacity 0.5s ease-in;
@@ -115,6 +112,19 @@ video {
 }
 
 .active video{
+  opacity: 1.0;
+}
+
+img {
+    opacity: 0.4;
+    -webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -ms-transition: opacity 0.5s ease-in;
+    -o-transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
+}
+
+.active img{
   opacity: 1.0;
 }
 
@@ -275,13 +285,26 @@ text {
 #lapp a:hover {
     color: grey;
 }
-#outro, #outro g {
+#haniel, #haniel g {
     color: grey;
+    fill: white;
+}
+#haniel a, #haniel a:visited, #haniel a:active, #haniel h2, #haniel text {
+    color: white;
+    fill: white;
+}
+#haniel a:hover {
+    color: grey;
+}
+
+
+#outro, #outro g {
+    color: black;
     fill: white;
 }
 #outro a, #outro a:visited, #outro a:active, #outro h2, #outro text {
     color: white;
-    fill: white;
+    fill: black;
 }
 #outro a:hover {
     color: grey;
