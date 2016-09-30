@@ -300,10 +300,10 @@ text {
 
 #outro, #outro g {
     color: black;
-    fill: white;
+    fill: #e63c66;
 }
 #outro a, #outro a:visited, #outro a:active, #outro h2, #outro text {
-    color: white;
+    color: #e63c66;
     fill: black;
 }
 #outro a:hover {
