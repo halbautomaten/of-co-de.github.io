@@ -48,6 +48,12 @@ function setupVideos() {
     for (var v = 0; v < videos.length; v++) {
         buildSources(videos[v]);
         makeVideoPlayableInline(videos[v], false);
+
+        videos[v].addEventListener("contextmenu", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }, false);
+
         videos[v].addEventListener("click", function() {
             if (this.paused) playSingleVideo(this);
             else this.pause();
