@@ -273,11 +273,23 @@ text {
 #bosch a:hover {
     color: white;
 }
+
 #ideas3 li {
     color: black;
 }
 #ideas3 a:hover {
     color: grey;
+}
+#snowflake, #snowflake g {
+    color: #00bdff;
+    fill: #00bdff;
+}
+#snowflake a, #snowflake a:visited, #snowflake a:active, #snowflake text {
+    color: white;
+    fill: #00bdff;
+}
+#snowflake a:hover {
+    color: lightgrey;
 }
 #schunk, #schunk g {
     color: black;
