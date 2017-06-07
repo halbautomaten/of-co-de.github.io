@@ -214,7 +214,7 @@ function addSourceToVideo(element, src, type) {
 function updateNavigation(id) {
     var navElements = document.querySelectorAll("li");
     for (var n = 0; n < navElements.length; n++) navElements[n].className = "";
-    var activeElement = document.querySelector("#" + id + "link");
+    var activeElement = document.querySelector("#" + id + "Link");
     if(activeElement) activeElement.className = "active";
     else console.log("#" + id + "link not found.");
 }
