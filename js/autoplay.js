@@ -215,7 +215,8 @@ function updateNavigation(id) {
     var navElements = document.querySelectorAll("li");
     for (var n = 0; n < navElements.length; n++) navElements[n].className = "";
     var activeElement = document.querySelector("#" + id + "link");
-    activeElement.className = "active";
+    if(activeElement) activeElement.className = "active";
+    else console.log("#" + id + "link not found.");
 }
 
 // function updateNavigationPosition() {
